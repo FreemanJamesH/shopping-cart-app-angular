@@ -6,4 +6,9 @@ shoppingApp.config(function($routeProvider){
     templateUrl: 'pages/search.html',
     controller: 'searchController'
   })
+
+  .when('/cart', {
+    templateUrl: 'pages/cart.html',
+    controller: 'cartController'
+  })
 })

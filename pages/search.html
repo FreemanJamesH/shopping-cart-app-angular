@@ -5,7 +5,7 @@
     </select>
   </div>
   <div class="col-sm-3">
-    Search by name: <input type="text">
+    Search by name: <input type="text" ng-model="search">
   </div>
   <div class="col-sm-3 pull-right">
     <a href="#/cart"><div class="btn btn-primary">Checkout | Shopping Cart : Empty!</div></a>
@@ -14,7 +14,7 @@
 <div class="row">
   <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Panel heading</div>
+  <div class="panel-heading">{{teaList}}</div>
 
   <!-- Table -->
   <table class="table">
@@ -23,17 +23,18 @@
       <th>Description</th>
       <th></th>
     </tr>
-    <tr>
-      <td class="col-md-2"><img src="http://s7d5.scene7.com/is/image/Teavana/31359_d?$cimg$" alt=""></td>
+    <tr ng-repeat="tea in view.teaList | filter : search">
+      <td class="col-md-2"><img src="{{tea.imageUrl}}" alt=""></td>
       <td class="col-md-7">
-        <h4>A delicious tea</h4>
-        <p><i>Fresh from the foothills of Xianguo prefecture, this refreshing blend of green tea and star anise is perfect for an autumn morning. </i></p>
-        <p>Price: $10.74</p>
-        <p>Caffeine Scale: 244</p>
-        <p>Ingredients: Tea leaves, dried fruit, cinnamon</p>
-        <p>Rating: 8.4</p>
-        <p>In stock: Yes</p>
-        <p>Categories: Refreshing, Chinese, Hot, Cold</p>
+        <h4>{{tea.name}}</h4>
+        <p><i>Fresh from the foothills of Xianguo prefecture, this refreshing blend is perfect for an autumn morning. </i></p>
+        <p>Price: {{tea.price}}</p>
+        <p>Caffeine Scale: {{tea.caffeineScale}}</p>
+        <p>Ingredients: {{tea.ingredients}}</p>
+        <p>Rating: {{tea.rating}}</p>
+        <p>In stock: {{tea.inStock}}</p>
+
+        <p>Categories: <span ng-repeat="category in tea.categories">{{category}} | </span></p>
       </td>
       <td class="col-md-3 text-justify"><input class="col-md-6" type="number"><div class="col-md-5 btn bg-primary">Button</div></td>
     </tr>

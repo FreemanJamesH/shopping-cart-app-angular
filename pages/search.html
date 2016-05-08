@@ -28,7 +28,7 @@
       <td class="col-md-7">
         <h4>{{tea.name}}</h4>
         <p><i>Fresh from the foothills of Xianguo prefecture, this refreshing blend is perfect for an autumn morning. </i></p>
-        <p>Price: {{tea.price}}</p>
+        <p>Price: {{(tea.price / 100) | currency}}</p>
         <p>Caffeine Scale: {{tea.caffeineScale}}</p>
         <p>Ingredients: {{tea.ingredients}}</p>
         <p>Rating: {{tea.rating}}</p>

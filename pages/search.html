@@ -36,7 +36,7 @@
 
         <p>Categories: <span ng-repeat="category in tea.categories">{{category}} | </span></p>
       </td>
-      <td class="col-md-3 text-justify"><input class="col-md-6" type="number"><div class="col-md-5 btn bg-primary">Button</div></td>
+      <td class="col-md-3 text-justify"><input class="col-md-6" ng-model="number" type="number"><div ng-click="logit(tea, number)" class="col-md-5 btn bg-primary">Add to cart</div></td>
     </tr>
   </table>
 </div>

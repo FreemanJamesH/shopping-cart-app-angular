@@ -24,7 +24,23 @@
       </td>
       <td>$10.74</td>
       <td>$10.74</td>
-      <td><strong>X</strong></td>
+      <td><div class="btn bg-danger">X</div></td>
+    </tr>
+    <tr ng-repeat="(key, value) in view.cartList">
+      <td class="col-md-2"><img src="{{value.info.imageUrl}}" alt=""></td>
+      <td class="col-md-7">
+        <h4>{{value.info.name}}</h4>
+        <p>Caffeine Scale: {{value.info.caffeineScale}}</p>
+        <p>Ingredients: {{value.info.ingredients}}</p>
+        <p>Rating: {{value.info.rating}}</p>
+        <p>In stock: {{value.info.inStock}}</p>
+      </td>
+      <td>
+        <input type="number" value=1>
+      </td>
+      <td>$10.74</td>
+      <td>$10.74</td>
+      <td><div class="btn bg-danger" ng-click="delete(key)">X</div></td>
     </tr>
   </table>
   <div class="col-md-12 text-right">

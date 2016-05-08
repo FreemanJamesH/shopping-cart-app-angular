@@ -115,6 +115,8 @@ shoppingApp.service('teaInventoryService', ['$resource', function($resource) {
     }
   ]
 
+  this.orderObject = {};
+
 
 
   this.assembleCategories = function() {

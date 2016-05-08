@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-3">
-    Search by category: <select name="heyo" id="searchByCategory" value="Hello">
-      <option selected="selected" value="option">option</option>
+    Search by category: <select name="heyo" ng-model="searchCategory" id="searchByCategory" value="Hello">
+      <option ng-repeat="option in view.category" value="{{option}}">{{option}}</option>
     </select>
   </div>
   <div class="col-sm-3">
@@ -14,7 +14,7 @@
 <div class="row">
   <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">{{teaList}}</div>
+  <div class="panel-heading">{{view.category}}</div>
 
   <!-- Table -->
   <table class="table">
@@ -23,7 +23,7 @@
       <th>Description</th>
       <th></th>
     </tr>
-    <tr ng-repeat="tea in view.teaList | filter : search">
+    <tr ng-repeat="tea in view.teaList | filter:{categories: searchCategory, name: search }">
       <td class="col-md-2"><img src="{{tea.imageUrl}}" alt=""></td>
       <td class="col-md-7">
         <h4>{{tea.name}}</h4>

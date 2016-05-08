@@ -2,6 +2,7 @@ shoppingApp.controller('searchController', ['$scope', '$resource', 'teaInventory
 
 $scope.view = {};
 $scope.view.teaList = teaInventoryService.getTeas;
+$scope.view.category = teaInventoryService.assembleCategories();
 
 $scope.test = 'test'
 

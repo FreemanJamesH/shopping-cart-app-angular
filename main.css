@@ -1,0 +1,19 @@
+.numberInput {
+  width: 35px;
+  margin-right: 5px;
+}
+
+.row {
+  margin-top: 3px;
+}
+
+.text-right {
+
+padding-right: 0px;
+margin-right: 0px;
+
+}
+
+.orange {
+  background-color: orange;
+}

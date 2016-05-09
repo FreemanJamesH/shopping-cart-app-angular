@@ -1,22 +1,22 @@
 <div class="row">
   <div class="col-sm-3">
-    Search by category: <select name="heyo" ng-model="searchCategory" id="searchByCategory" value="Hello">
+    Search by category: <select ng-model="searchCategory" id="searchByCategory">
+      <option value="">No category</option>
       <option ng-repeat="option in view.category" value="{{option}}">{{option}}</option>
     </select>
   </div>
   <div class="col-sm-3">
     Search by name: <input type="text" ng-model="search">
   </div>
-  <div class="col-sm-3 pull-right">
-    <a href="#/cart"><div class="btn btn-primary">Checkout | Shopping Cart : Empty!</div></a>
+  <div class="col-sm-6 text-right">
+    <a href="#/cart"><ng-pluralize ng-model="itemCount" class="btn orange" count="itemCount"
+                           when="{'0': 'Checkout | Your shopping cart is empty!',
+                                  '1': 'Checkout | You have 1 item in your shopping cart',
+                                  'other': 'Checkout | You have {{itemCount}} items in your shopping cart'}"></ng-pluralize></a>
   </div>
 </div>
 <div class="row">
   <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">{{view.category}}</div>
-
-  <!-- Table -->
   <table class="table">
     <tr>
       <th>Item</th>
@@ -35,7 +35,7 @@
         <p>In stock: {{tea.inStock}}</p>
         <p>Categories: <span ng-repeat="category in tea.categories">{{category}} | </span></p>
       </td>
-      <td class="col-md-3 text-justify"><input class="col-md-6" ng-model="number" type="number"><div ng-click="addToCart(tea, number)" class="col-md-5 btn bg-primary">Add to cart</div></td>
+      <td class="col-md-3 text-right">Qty: <input class="numberInput" ng-model="number" type="number"><div ng-click="addAndUpdate(tea, number)" class="btn bg-primary">Add to cart</div></td>
     </tr>
   </table>
 </div>

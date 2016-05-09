@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-6">
-    <h2>My shopping cart</h2>
+  <div class="bigfont col-md-6">
+    <h2>My Shopping Cart</h2>
   </div>
   <table class="table">
     <tr>
@@ -24,7 +24,7 @@
       </td>
       <td>{{value.info.price/100 | currency}}</td>
       <td>{{(value.info.price/100 * value.count) | currency}}</td>
-      <td><div class="btn bg-danger" ng-click="delete(key)">X</div></td>
+      <td><div class="btn bg-danger" ng-click="deleteUpdate(key)">X</div></td>
     </tr>
   </table>
   <div class="col-md-12 text-right">

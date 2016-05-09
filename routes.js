@@ -2,7 +2,7 @@ shoppingApp.config(function($routeProvider){
 
   $routeProvider
 
-  .when('/search', {
+  .when('/', {
     templateUrl: 'pages/search.html',
     controller: 'searchController'
   })
@@ -10,5 +10,9 @@ shoppingApp.config(function($routeProvider){
   .when('/cart', {
     templateUrl: 'pages/cart.html',
     controller: 'cartController'
+  })
+
+  .when('/contact', {
+    templateUrl: 'pages/contact.html'
   })
 })

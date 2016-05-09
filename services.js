@@ -117,13 +117,21 @@ shoppingApp.service('teaInventoryService', ['$resource', function($resource) {
 
   this.orderObject = {};
 
+
+
   this.getTotal = function(){
     var a = 0;
+    var b = 0;
+    var arr = [];
     for (key in this.orderObject){
       var teaOrder = this.orderObject[key]
-      a+= teaOrder.count * teaOrder.info.price
+      a+= teaOrder.count * teaOrder.info.price;
+      b+= teaOrder.count
     }
-    return a;
+    arr.push(a);
+    arr.push(b);
+    console.log(arr)
+    return arr;
   }
 
 

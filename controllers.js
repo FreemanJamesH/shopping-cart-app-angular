@@ -4,11 +4,14 @@ $scope.view = {};
 $scope.view.teaList = teaInventoryService.getTeas;
 $scope.view.category = teaInventoryService.assembleCategories();
 
-$scope.logit = function(a, b){
+$scope.addToCart = function(a, b){
+  if (teaInventoryService.orderObject[a._id]){
+    teaInventoryService.orderObject[a._id].count += b
+  } else {
   teaInventoryService.orderObject[a._id] = {};
   teaInventoryService.orderObject[a._id].info = a;
   teaInventoryService.orderObject[a._id].count = b;
-  console.log(teaInventoryService.orderObject)
+}
 }
 
 
@@ -32,5 +35,9 @@ $scope.delete = function(a){
   delete teaInventoryService.orderObject[a]
   console.log('a')
 }
+
+
+$scope.getTotal = function(){ $scope.total = teaInventoryService.getTotal()}
+$scope.getTotal();
 
 }])

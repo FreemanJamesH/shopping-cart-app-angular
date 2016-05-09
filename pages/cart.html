@@ -10,22 +10,6 @@
       <th>Price</th>
       <th>Subtotal</th>
     </tr>
-    <tr>
-      <td class="col-md-2"><img src="http://s7d5.scene7.com/is/image/Teavana/31359_d?$cimg$" alt=""></td>
-      <td class="col-md-7">
-        <h4>A delicious tea</h4>
-        <p>Caffeine Scale: 244</p>
-        <p>Ingredients: Tea leaves, dried fruit, cinnamon</p>
-        <p>Rating: 8.4</p>
-        <p>In stock: Yes</p>
-      </td>
-      <td>
-        <input type="number" value=1>
-      </td>
-      <td>$10.74</td>
-      <td>$10.74</td>
-      <td><div class="btn bg-danger">X</div></td>
-    </tr>
     <tr ng-repeat="(key, value) in view.cartList">
       <td class="col-md-2"><img src="{{value.info.imageUrl}}" alt=""></td>
       <td class="col-md-7">
@@ -36,14 +20,14 @@
         <p>In stock: {{value.info.inStock}}</p>
       </td>
       <td>
-        <input type="number" value=1>
+        <input type="number" ng-model="value.count" ng-change="getTotal()" value={{value.count}}>
       </td>
-      <td>$10.74</td>
-      <td>$10.74</td>
+      <td>{{value.info.price/100 | currency}}</td>
+      <td>{{(value.info.price/100 * value.count) | currency}}</td>
       <td><div class="btn bg-danger" ng-click="delete(key)">X</div></td>
     </tr>
   </table>
   <div class="col-md-12 text-right">
-    <h2>Total: $393.22</h2>
+    <h2>{{total/100 | currency}}</h2>
   </div>
 </div>
